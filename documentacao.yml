@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: API de Conversão Decimal para Binário
+  description: Converte um número decimal (base 10) para binário (base 2)
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Servidor de desenvolvimento
+paths:
+  /to-binary/{decimal}:
+    get:
+      summary: Converte decimal para binário
+      parameters:
+        - name: decimal
+          in: path
+          required: true
+          description: Número decimal a ser convertido
+          schema:
+            type: string
+            example: "25"
+      responses:
+        '200':
+          description: Conversão bem-sucedida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  decimal:
+                    type: number
+                  binary:
+                    type: string
+              example:
+                decimal: 25
+                binary: "11001"
+        '400':
+          description: Número decimal inválido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+              example:
+                error: "Número decimal inválido"
