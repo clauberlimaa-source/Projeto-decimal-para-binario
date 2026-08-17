@@ -10,6 +10,6 @@
   "scripts": {
     "test": "jest --ci",
     "coverage": "jest --coverage",
-    "test:ci": "jest --ci --reporters=default --reporters=jest-junit"
+    "test:ci": "JEST_JUNIT_OUTPUT_DIR=reports JEST_JUNIT_OUTPUT_NAME=junit.xml jest --ci --reporters=default --reporters=jest-junit"
   }
 }
